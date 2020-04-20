@@ -1,6 +1,6 @@
 
 
-extract_string <- function(direct) {
+extract_string <- function(direct, output = NULL) {
     # create vector of even numbers between 2 and 12
     evens <- seq(from = 2, to = 12, by = 2)
 
@@ -52,9 +52,12 @@ extract_string <- function(direct) {
     }
     # End loop
 
-    # write results matrix to csv
+    # option to write results matrix to csv
+    # output must be a character vector of the PATH desired for output file
+    if (!is.null(output)) {
+        write.csv(results, file = output)
+    }
 
-    write.csv(results, file = "Output/String.csv")
 
     # end with the final results matrix so it will be what is returned by function
     results
