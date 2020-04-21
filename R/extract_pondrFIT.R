@@ -1,5 +1,21 @@
 
 
+#' Extract data from URLs produced by PONDR-FIT meta-predictor
+#'
+#' This function extracts the relevant data from the temporaty URL produced by
+#' analyzing a protein sequence in the PONDR-FIT protein disorder meta-predictor
+#' (http://original.disprot.org/pondr-fit.php). URLs were collected and put in a
+#' csv file with the UniProt ID in the first column and URL in the second.
+#'
+#' @param path A character string desctibing the path to the csv file containing URLs to be read.
+#' @param save_raw A character string describing the path to a *Directory* where intermediate files for each protein shoul be saved. If `NULL`, the intermediate files will not be written to csv.
+#' @param output A character string describing the path to write the output matrix to. If `NULL`, an output file will not be written.
+#'
+#' @return a martix containing the average disorder scores, % disorder scores, and length (in addition to the UniProt ID and URL)
+#' @export
+#'
+#' @examples
+#' extract_pondrFIT("./Data/pondrfit-url.csv")
 extract_pondrFIT <- function(path, save_raw = NULL, output = NULL) {
 
     # read data from file
@@ -43,5 +59,6 @@ extract_pondrFIT <- function(path, save_raw = NULL, output = NULL) {
         write.csv(my_urls, file = output)
     }
 
-
+    # end with the final matrix so it will be what is returned by function
+    my_urls
 }
