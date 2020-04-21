@@ -8,6 +8,6 @@ Description: Given data files collected on protein disorder predictors (DisProt
     and PONDR) and protein interaction networks (STRING), functions extract 
     relevant information and organizes it into a tidy format for analysis.
     For future versions I hope to automate the data collection as well.
-License: What license is it under?
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
