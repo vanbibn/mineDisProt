@@ -4,22 +4,30 @@
 #'
 #' This function extracts the relevant data from the temporaty URL produced by
 #' analyzing a protein sequence in the PONDR-FIT protein disorder meta-predictor
-#' (http://original.disprot.org/pondr-fit.php). URLs were collected and put in a
-#' csv file with the UniProt ID in the first column and URL in the second.
+#' (http://original.disprot.org/pondr-fit.php). It then calculates  average and
+#' percent disorder scores from the per-residue scores.  Before using this
+#' function, URLs should be collected and put in a `.csv` file with the
+#' UniProt ID in the first column and URL in the second.
 #'
-#' @param path A character string desctibing the path to the csv file containing URLs to be read.
-#' @param save_raw A character string describing the path to a *Directory* where intermediate files for each protein shoul be saved. If `NULL`, the intermediate files will not be written to csv.
-#' @param output A character string describing the path to write the output matrix to. If `NULL`, an output file will not be written.
+#' @param path A character string desctibing the path to the csv file containing
+#'  URLs to be read.
+#' @param save_raw A character string describing the path to a *Directory* where
+#'  intermediate files for each protein should be saved. If `NULL`, the
+#'  intermediate files will not be written to csv.
+#' @param output A character string describing the path to write the output
+#'  matrix. If `NULL`, an output file will not be written.
 #'
-#' @return a martix containing the average disorder scores, % disorder scores, and length (in addition to the UniProt ID and URL)
+#' @return A martix containing the average disorder scores, percent disorder
+#'  scores, and length (in addition to the UniProt ID and URL that were input).
 #' @export
 #'
 #' @examples
-#' extract_pondrFIT("./Data/pondrfit-url.csv")
+#' extract_pondrFIT("./data/pondrfit-url.csv")
+#' extract_pondrFIT("./data/pondrfit-url.csv", save_raw = NULL, output = "./Output/PONDR-FIT.csv")
 extract_pondrFIT <- function(path, save_raw = NULL, output = NULL) {
 
     # read data from file
-    my_urls <- read_csv(path)
+    my_urls <- readr::read_csv(path)
 
     # create 3 empty columns for avg disorder scores, % disorder scores, and length
     my_urls <- dplyr::mutate(my_urls, meanDisorder = NA, percentDisorder = NA, length = NA)
@@ -38,7 +46,7 @@ extract_pondrFIT <- function(path, save_raw = NULL, output = NULL) {
 
         # MAKE OPTIONAL
         if (!is.null(save_raw)) {
-            write.csv(fit1, file = paste0(save_raw, my_urls$UniprotID[u],"_pondrFIT.csv"))
+            utils::write.csv(fit1, file = paste0(save_raw, my_urls$UniprotID[u],"_pondrFIT.csv"))
         }
         #
 
@@ -56,7 +64,7 @@ extract_pondrFIT <- function(path, save_raw = NULL, output = NULL) {
     # option to write results matrix to csv
     # output must be a character vector of the PATH desired for output file
     if (!is.null(output)) {
-        write.csv(my_urls, file = output)
+        utils::write.csv(my_urls, file = output)
     }
 
     # end with the final matrix so it will be what is returned by function

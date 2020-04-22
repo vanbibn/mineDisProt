@@ -7,21 +7,29 @@
 extract_pondrFIT(path, save_raw = NULL, output = NULL)
 }
 \arguments{
-\item{path}{A character string desctibing the path to the csv file containing URLs to be read.}
+\item{path}{A character string desctibing the path to the csv file containing
+URLs to be read.}
 
-\item{save_raw}{A character string describing the path to a *Directory* where intermediate files for each protein shoul be saved. If `NULL`, the intermediate files will not be written to csv.}
+\item{save_raw}{A character string describing the path to a *Directory* where
+intermediate files for each protein should be saved. If `NULL`, the
+intermediate files will not be written to csv.}
 
-\item{output}{A character string describing the path to write the output matrix to. If `NULL`, an output file will not be written.}
+\item{output}{A character string describing the path to write the output
+matrix. If `NULL`, an output file will not be written.}
 }
 \value{
-a martix containing the average disorder scores, % disorder scores, and length (in addition to the UniProt ID and URL)
+A martix containing the average disorder scores, percent disorder
+ scores, and length (in addition to the UniProt ID and URL that were input).
 }
 \description{
 This function extracts the relevant data from the temporaty URL produced by
 analyzing a protein sequence in the PONDR-FIT protein disorder meta-predictor
-(http://original.disprot.org/pondr-fit.php). URLs were collected and put in a
-csv file with the UniProt ID in the first column and URL in the second.
+(http://original.disprot.org/pondr-fit.php). It then calculates  average and
+percent disorder scores from the per-residue scores.  Before using this
+function, URLs should be collected and put in a `.csv` file with the
+UniProt ID in the first column and URL in the second.
 }
 \examples{
-extract_pondrFIT("./Data/pondrfit-url.csv")
+extract_pondrFIT("./data/pondrfit-url.csv")
+extract_pondrFIT("./data/pondrfit-url.csv", save_raw = NULL, output = "./Output/PONDR-FIT.csv")
 }
