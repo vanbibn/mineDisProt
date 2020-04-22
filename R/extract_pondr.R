@@ -1,3 +1,26 @@
+
+
+#' Extract data from text files of protein disorder predictors from PONDR.
+#'
+#' This function extracts numerical data from text porduced by the VLXT, VL3,
+#' and VSL2 disorder predictors from the Predictor of Natural Disordered Regions
+#'  (PONDR) website <http://www.pondr.com/>. For each protien sequence, the data
+#'  from the Raw Output of all three predictors were pasted into a .txt file.
+#'
+#' @param directory A character string describing the path to a Directory where
+#' all the text files are located. Note, the function will attempt to read every
+#' file in the directory so it should contain only the files you wish to be read.
+#' @param output A character string describing the path to write the output
+#'  matrix. If `NULL`, an output file will not be written.
+#'
+#' @return A matrix containing, for each protein, the Predicted residues ("resid"), Number
+#' Disordered Regions ("dis_rgns"), Number residues disordered ("n_dis"),
+#' Longest Disordered Region ("lg_rgn"), Overall percent disordered ("pct"),
+#' and Average Prediction Score ("avg") for each of the three predictors.
+#' @export
+#'
+#' @examples
+#' extract_pondr("data/pondr_text/")
 extract_pondr <- function(directory, output = NULL) {
     ## create column names
     # make vectors for predictors and variables
@@ -71,7 +94,7 @@ extract_pondr <- function(directory, output = NULL) {
     # option to write results matrix to csv
     # output must be a character vector of the PATH desired for output file
     if (!is.null(output)) {
-        write.csv(results, file = output)
+        utils::write.csv(results, file = output)
     }
 
     # end with the final results matrix so it will be what is returned by function
