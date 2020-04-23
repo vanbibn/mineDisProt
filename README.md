@@ -44,7 +44,7 @@ This function extracts numerical data from text porduced by the VLXT,
 VL3, and VSL2 disorder predictors from the Predictor of Natural
 Disordered Regions [PONDR](http://www.pondr.com/). For each protien
 sequence, the data from the Raw Output of all three predictors were
-pasted into a .txt file.
+pasted into a `.txt` file.
 
 ``` r
 pondr_data <- extract_pondr("inst/extdata/pondr_text/")
@@ -66,7 +66,7 @@ pondr_data[,1:6]
 
 ###### You may get warnings about “incomplete final line found \[in the text file\].”
 
-#### extract\_pondr.noVL3()
+##### extract\_pondr.noVL3()
 
 This is a version of `extract_pondr()`, except the raw data for the VL3
 predictor is missing from the raw data text files.
@@ -172,7 +172,7 @@ string_data[,1:6]
 #> Q99666                             NA
 ```
 
-###### You may get some warnings like “NAs introduced by coercion”. This may be the case if your protein is missing data as some of the higher confidence levels.
+###### You may get some warnings like “NAs introduced by coercion” if your protein is missing data at higher confidence levels.
 
 ------------------------------------------------------------------------
 
