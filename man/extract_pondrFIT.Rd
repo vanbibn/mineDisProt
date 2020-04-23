@@ -18,7 +18,7 @@ intermediate files will not be written to csv.}
 matrix. If `NULL`, an output file will not be written.}
 }
 \value{
-A martix containing the average disorder scores, percent disorder
+A data frame containing the average disorder scores, percent disorder
  scores, and length (in addition to the UniProt ID and URL that were input).
 }
 \description{

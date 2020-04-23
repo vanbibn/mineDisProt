@@ -17,7 +17,7 @@
 #' @param output A character string describing the path to write the output
 #'  matrix. If `NULL`, an output file will not be written.
 #'
-#' @return A martix containing the average disorder scores, percent disorder
+#' @return A data frame containing the average disorder scores, percent disorder
 #'  scores, and length (in addition to the UniProt ID and URL that were input).
 #' @export
 #'
