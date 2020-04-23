@@ -22,8 +22,8 @@
 #' @export
 #'
 #' @examples
-#' extract_pondrFIT("data/pondrfit-url.csv")
-#' extract_pondrFIT("data/pondrfit-url.csv", save_raw = NULL, output = "./Output/PONDR-FIT.csv")
+#' extract_pondrFIT("inst/extdata/pondrfit-url.csv")
+#' extract_pondrFIT("data/pondrfit-url.csv", save_raw = NULL, output = "data/PONDR-FIT.csv")
 extract_pondrFIT <- function(path, save_raw = NULL, output = NULL) {
 
     # read data from file

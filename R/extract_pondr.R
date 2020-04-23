@@ -20,7 +20,7 @@
 #' @export
 #'
 #' @examples
-#' extract_pondr("data/pondr_text/")
+#' extract_pondr("inst/extdata/pondr_text/")
 extract_pondr <- function(directory, output = NULL) {
     ## create column names
     # make vectors for predictors and variables

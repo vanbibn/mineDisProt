@@ -24,5 +24,5 @@ Extract data on the quantity of protein interactions given by STRING
 medium (0.4), high (0.7), and highest (0.9) confidence.
 }
 \examples{
-extract_string("data/string/")
+extract_string("inst/extdata/string/")
 }
