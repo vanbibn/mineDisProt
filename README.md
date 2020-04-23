@@ -1,7 +1,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 mineDisProt
------------
+===========
 
 The package mineDisProt was developed to extract data from unstructured
 or semi-structured formats and compile into matrices or data frames more
@@ -19,7 +19,8 @@ analyze.
 My goal in developing `mineDisProt` was to simplify the data collection
 process so you can focus on the analysis of your data set.
 
-### Installation
+Installation
+------------
 
 You can install the development version from
 [GitHub](https://github.com/) with:
@@ -29,7 +30,8 @@ You can install the development version from
 devtools::install_github("vanbibn/mineDisProt")
 ```
 
-### Examples
+Examples
+--------
 
 First, we need to load the package.
 
@@ -38,7 +40,7 @@ library(mineDisProt)
 ## basic example code
 ```
 
-#### extract\_pondr()
+### extract\_pondr()
 
 This function extracts numerical data from text porduced by the VLXT,
 VL3, and VSL2 disorder predictors from the Predictor of Natural
@@ -66,7 +68,7 @@ pondr_data[,1:6]
 
 ###### You may get warnings about “incomplete final line found \[in the text file\].”
 
-##### extract\_pondr.noVL3()
+### extract\_pondr.noVL3()
 
 This is a version of `extract_pondr()`, except the raw data for the VL3
 predictor is missing from the raw data text files.
@@ -97,7 +99,7 @@ extract_pondr.noVL3("inst/extdata/pondr_text_withoutVL3/")
 #> Q96QE4            947            10        579         330    61.14   0.6086
 ```
 
-#### extract\_pondrFIT()
+### extract\_pondrFIT()
 
 This function extracts the relevant data from the temporaty URL produced
 by analyzing a protein sequence in the
@@ -126,7 +128,7 @@ extract_pondrFIT("inst/extdata/pondrfit-url.csv")
 
 ###### You may get messages about “Parsed with column specification:”.
 
-#### extract\_string()
+### extract\_string()
 
 Extract data on the quantity of protein interactions given by
 [STRING](https://string-db.org/) with the minimum number of interactions

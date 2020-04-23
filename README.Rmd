@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## mineDisProt
+# mineDisProt
 
 The package mineDisProt was developed to extract data from unstructured or semi-structured formats and compile into matrices or data frames more amenable to analysis of intrinsically disorder (ID).
 
@@ -24,7 +24,7 @@ My goal in developing `mineDisProt` was to simplify the data collection process 
 
 
 
-### Installation
+## Installation
 
 You can install the development version from [GitHub](https://github.com/) with:
 
@@ -33,7 +33,7 @@ You can install the development version from [GitHub](https://github.com/) with:
 devtools::install_github("vanbibn/mineDisProt")
 ```
 
-### Examples
+## Examples
 
 First, we need to load the package.
 
@@ -42,7 +42,7 @@ library(mineDisProt)
 ## basic example code
 ```
 
-#### extract_pondr()
+### extract_pondr()
 
 This function extracts numerical data from text porduced by the VLXT, VL3, and VSL2 disorder predictors from the Predictor of Natural Disordered Regions [PONDR](http://www.pondr.com/). For each protien sequence, the data from the Raw Output of all three predictors were pasted into a `.txt` file.
 
@@ -56,7 +56,7 @@ pondr_data[,1:6]
 ###### You may get warnings about "incomplete final line found [in the text file]."
 
 
-##### extract_pondr.noVL3()
+### extract_pondr.noVL3()
 
 This is a version of `extract_pondr()`, except the raw data for the VL3 predictor is missing from the raw data text files.
 
@@ -65,7 +65,7 @@ extract_pondr.noVL3("inst/extdata/pondr_text_withoutVL3/")
 ```
 
 
-#### extract_pondrFIT()
+### extract_pondrFIT()
 
 This function extracts the relevant data from the temporaty URL produced by analyzing a protein sequence in the [PONDR-FIT](http://original.disprot.org/pondr-fit.php) protein disorder meta-predictor. It then calculates  average and percent disorder scores from the per-residue scores.  Before using this function, URLs should be collected and put in a `.csv` file with the UniProt ID in the first column and URL in the second.
 
@@ -76,7 +76,7 @@ extract_pondrFIT("inst/extdata/pondrfit-url.csv")
 ###### You may get messages about "Parsed with column specification:".
 
 
-#### extract_string()
+### extract_string()
 
 Extract data on the quantity of protein interactions given by [STRING](https://string-db.org/) with the minimum number of interactions at medium (0.4), high (0.7), and highest (0.9) confidence.
 
