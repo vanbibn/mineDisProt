@@ -17,3 +17,9 @@ Imports:
     readr,
     dplyr,
     readxl
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+URL: https://github.com/vanbibn/mineDisProt
+BugReports: https://github.com/vanbibn/mineDisProt/issues
