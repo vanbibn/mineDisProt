@@ -3,3 +3,4 @@
 export(extract_pondr)
 export(extract_pondr.noVL3)
 export(extract_pondrFIT)
+export(extract_string)

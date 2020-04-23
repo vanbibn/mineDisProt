@@ -1,5 +1,23 @@
 
 
+#' Extract data on the quantity of protein interactions given by STRING.
+#'
+#' Extract data on the quantity of protein interactions given by STRING
+#' (https://string-db.org/) with the minimum number of interactions at
+#' medium (0.4), high (0.7), and highest (0.9) confidence.
+#'
+#' @param direct A character string describing the path to a Directory where
+#' all the text files are located. Note, the function will attempt to read every
+#' file in the directory so it should contain only the files you wish to be read.
+#' @param output A character string describing the path to write the output
+#'  matrix. If `NULL`, an output file will not be written.
+#'
+#' @return A matrix containing the network stats at each of the three confidence
+#' levels for every protein.
+#' @export
+#'
+#' @examples
+#' extract_string("data/string/")
 extract_string <- function(direct, output = NULL) {
     # create vector of even numbers between 2 and 12
     evens <- seq(from = 2, to = 12, by = 2)
@@ -55,7 +73,7 @@ extract_string <- function(direct, output = NULL) {
     # option to write results matrix to csv
     # output must be a character vector of the PATH desired for output file
     if (!is.null(output)) {
-        write.csv(results, file = output)
+        utils::write.csv(results, file = output)
     }
 
 
