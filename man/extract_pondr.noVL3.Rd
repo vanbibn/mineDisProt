@@ -28,5 +28,5 @@ For each protien sequence, the data from the Raw Output of the two
 predictors were pasted into a .txt file.
 }
 \examples{
-extract_pondr.noVL3("inst/extdata/pondr_text_withoutVL3/")
+# extract_pondr.noVL3("inst/extdata/pondr_text_withoutVL3/")
 }

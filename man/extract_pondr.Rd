@@ -27,5 +27,5 @@ and VSL2 disorder predictors from the Predictor of Natural Disordered Regions
  from the Raw Output of all three predictors were pasted into a .txt file.
 }
 \examples{
-extract_pondr("inst/extdata/pondr_text/")
+# extract_pondr("inst/extdata/pondr_text/")
 }

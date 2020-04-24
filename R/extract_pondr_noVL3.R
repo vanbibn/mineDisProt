@@ -21,7 +21,7 @@
 #' @export
 #'
 #' @examples
-#' extract_pondr.noVL3("inst/extdata/pondr_text_withoutVL3/")
+#' # extract_pondr.noVL3("inst/extdata/pondr_text_withoutVL3/")
 extract_pondr.noVL3 <- function(directory, output = NULL) {
     ## create column names
     # make vectors for predictors and variables

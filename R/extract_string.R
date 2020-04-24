@@ -17,7 +17,7 @@
 #' @export
 #'
 #' @examples
-#' extract_string("inst/extdata/string/")
+#' # extract_string("inst/extdata/string/")
 extract_string <- function(direct, output = NULL) {
     # create vector of even numbers between 2 and 12
     evens <- seq(from = 2, to = 12, by = 2)
