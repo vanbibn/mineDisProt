@@ -1,13 +1,15 @@
 Package: mineDisProt
 Type: Package
 Title: Mine/Extract data on protein disorder from DisProt (and other databases)
-Version: 0.1.0
-Author: Nathan W. Van Bibber
+Version: 0.0.0.9000
+Authors@R: person("Nathan W.", "Van Bibber", email = "nvanbibber@mail.usf.edu", 
+    role = c("aut", "cre"))
 Maintainer: Nathan W. Van Bibber <nvanbibber@mail.usf.edu>
 Description: Given data files collected on protein disorder predictors (DisProt 
     and PONDR) and protein interaction networks (STRING), functions extract 
     relevant information and organizes it into a tidy format for analysis.
     For future versions I hope to automate the data collection as well.
+Depends: R (>= 2.10)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
