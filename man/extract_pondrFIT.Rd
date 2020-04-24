@@ -15,7 +15,7 @@ intermediate files for each protein should be saved. If `NULL`, the
 intermediate files will not be written to csv.}
 
 \item{output}{A character string describing the path to write the output
-matrix. If `NULL`, an output file will not be written.}
+data frame. If `NULL`, an output file will not be written.}
 }
 \value{
 A data frame containing the average disorder scores, percent disorder
