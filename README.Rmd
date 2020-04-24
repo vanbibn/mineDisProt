@@ -8,7 +8,7 @@ output:
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
+  collapse = FALSE,
   comment = "#>",
   fig.path = "README-"
 )
@@ -39,7 +39,6 @@ First, we need to load the package.
 
 ```{r load}
 library(mineDisProt)
-## basic example code
 ```
 
 ### extract_pondr()
@@ -53,7 +52,7 @@ pondr_data <- extract_pondr("inst/extdata/pondr_text/")
 pondr_data[,1:6]
 ```
 
-###### You may get warnings about "incomplete final line found [in the text file]."
+###### * You may get warnings about "incomplete final line found [in the text file]."
 
 
 ### extract_pondr.noVL3()
@@ -73,7 +72,7 @@ This function extracts the relevant data from the temporaty URL produced by anal
 extract_pondrFIT("inst/extdata/pondrfit-url.csv")
 ```
 
-###### You may get messages about "Parsed with column specification:".
+###### * You may get messages about "Parsed with column specification:".
 
 
 ### extract_string()
@@ -87,7 +86,7 @@ string_data <- extract_string("inst/extdata/string/")
 string_data[,1:6]
 ```
 
-###### You may get some warnings like "NAs introduced by coercion" if your protein is missing data at higher confidence levels.
+###### * You may get some warnings like "NAs introduced by coercion" if your protein is missing data at higher confidence levels.
 
 ***
 
