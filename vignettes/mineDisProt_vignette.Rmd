@@ -1,0 +1,112 @@
+---
+title: "mineDisProt_vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mineDisProt_vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = FALSE,
+  comment = "#>"
+)
+```
+
+First, we need to load the package.
+
+```{r setup}
+library(mineDisProt)
+```
+
+## extract_pondr()
+
+This function extracts numerical data from text porduced by the VLXT, VL3, and VSL2 disorder predictors from the Predictor of Natural Disordered Regions [PONDR](http://www.pondr.com/). For each protien sequence, the data from the Raw Output of all three predictors were pasted into a `.txt` file.
+
+The first parameter of the function, `directory`, is mandatory and should be a character string describing the path to a **Directory** (should end in `/`) where all the text files are located. This can be an absolute path or a relative path from your current working directory. Note, the function will attempt to read *every* file in the directory so it should contain *only* the files you wish to be read.
+
+```{r example_1a, warning=FALSE}
+pondr_data <- extract_pondr("../inst/extdata/pondr_text/")
+
+# here we will view the data from just the VLXT predictor
+pondr_data[,1:6]
+```
+
+*Note: You may get warnings about "incomplete final line found [in the text file]."*
+
+The second parameter, `output`, is optional and allows the user to write the output of the function to a csv file. It sould be a character string describing the path to where you want the output matrix to be written. This is useful if you have many proteins in your data set and want to "cache" the output matrix so it does not have to be reproduced each time. This can be an absolute path or a relative path from your current working directory.
+
+```{r example_1b, eval=FALSE}
+extract_pondr("inst/extdata/pondr_text/", "Path/to/my_pondr_data.csv")
+```
+
+Alternatively, you can assign the matrix to a variabe and write it to a file yourself later this yourself later through the console (just leave the default value of NULL).
+
+
+
+
+## extract_pondr.noVL3()
+
+This is a version of `extract_pondr()`, except the raw data for the VL3 predictor is missing from the raw data text files. It has the same parameters as well (see the examples above for details).
+
+
+```{r example_2, warning=FALSE}
+extract_pondr.noVL3("../inst/extdata/pondr_text_withoutVL3/")
+```
+
+
+
+## extract_pondrFIT()
+
+This function extracts the relevant data from the temporaty URL produced by analyzing a protein sequence in the [PONDR-FIT](http://original.disprot.org/pondr-fit.php) protein disorder meta-predictor. It then calculates  average and percent disorder scores from the per-residue scores.  Before using this function, URLs should be collected and put in a `.csv` file with the UniProt ID in the first column and URL in the second.
+
+The first parameter of the function, `path`, is mandatory and should be a character string describing the path to the csv file containing URLs to be read. This can be an absolute path or a relative path from your current working directory.
+
+```{r example_3a, message=FALSE}
+extract_pondrFIT("../inst/extdata/pondrfit-url.csv")
+```
+
+*Note: You may get messages about "Parsed with column specification:".*
+
+The second parameter, `save_raw`, is optional and allows the user to write the intermediate per-residue date for each protein to a file. This may take a while because it will write one file per protein in the data set. The value of `save_raw` should be a character string describing the path to a **Directory** (should end in `/`) where intermediate files for each protein should be saved.
+
+The third parameter, `output`, is also optional and allows the user to write the output of the function to a csv file. It sould be a character string describing the path to where you want the output data frame to be written. This is useful if you have many proteins in your data set and want to "cache" the output matrix so it does not have to be reproduced each time. This can be an absolute path or a relative path from your current working directory.
+
+```{r example_3b, eval=FALSE}
+myData <- "inst/extdata/pondrfit-url.csv"
+myDirectory <- "Path/to/RawData/Directory/"
+myFile <- "Path/to/my_pondrFIT_data.csv"
+
+extract_pondrFIT(myData, save_raw = myDirectory, output = myFile)
+```
+
+
+
+## extract_string()
+
+Extract data on the quantity of protein interactions given by [STRING](https://string-db.org/) with the minimum number of interactions at medium (0.4), high (0.7), and highest (0.9) confidence.
+
+The first parameter of the function, `direct`, is mandatory and should be a character string describing the path to a **Directory** (should end in `/`) where all the text files are located. This can be an absolute path or a relative path from your current working directory. Note, the function will attempt to read *every* file in the directory so it should contain *only* the files you wish to be read.
+
+```{r example_4a, warning=FALSE}
+string_data <- extract_string("../inst/extdata/string/")
+
+# here are the interaction data for each protein at the 0.4 confidence level
+string_data[,1:6]
+```
+
+*Note: You may get some warnings like "NAs introduced by coercion" if your protein is missing data at higher confidence levels.*
+
+
+Some proteins may not have any interaction data at higher confidence levels.
+
+```{r example_4b, warning=FALSE}
+string_data[,13:18]
+```
+
+
+
+Again, the second parameter, `output`, is optional and allows the user to write the output of the function to a csv file. It sould be a character string describing the path to where you want the output matrix to be written. This is useful if you have many proteins in your data set and want to "cache" the output matrix so it does not have to be reproduced each time. This can be an absolute path or a relative path from your current working directory.
+
+***
