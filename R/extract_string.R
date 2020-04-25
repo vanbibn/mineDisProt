@@ -26,12 +26,13 @@ extract_string <- function(direct, output = NULL) {
     ## first make individual vectors
     confidence <- c("0.4", "0.7", "0.9")
     names <- c(
-        "num_nodes",
-        "num_edges",
-        "avg_node_degree",
-        "avg_local_clustering_coef",
-        "expected_num_edges",
-        "PPI_enrichment_p-value")
+        "nodes",      # number of nodes (proteins) in network
+        "edges",      # number of edges (interactions) in network
+        "node_deg",   # average node degree
+        "lc_coef",    # avgerage local clustering coeffficient
+        "edges_Exp",  # expected number of edges
+        "p_PPI"       # PPI enrichment p-value
+        )
 
     ## combine each value of confidence and names with "." between them
     varnames <- as.vector(outer(names, confidence, paste, sep = "."))
